@@ -1,0 +1,61 @@
+<main>
+    <div class="loginBlock">
+        <div class="loginHead">Log in
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="loginsubmitted()">
+
+            <div class="credentials username">
+                <input type="text" placeholder="Username/Email ID*" id="username" formControlName="username">
+                <p>FORGOT USERNAME?</p>
+
+                <div style="color: red; font-size: 12px;"
+                    *ngIf="UserName.errors?.['required'] && (UserName.dirty || UserName.touched)">
+                    Username is required
+                </div>
+
+                <div style="color: red; font-size: 12px;"
+                    *ngIf="UserName.errors?.['minlength'] && (UserName.dirty || UserName.touched)">
+                    Username is not valid
+                </div>
+            </div>
+
+            <div class="credentials password">
+                <input type="password" placeholder="ENTER Password*" id="pw" formControlName="pw">
+                >
+                <p>FORGOT PASSWORD?</p>
+                <div style=" color: red; font-size: 12px;"
+                    *ngIf="PassWord.errors?.['required'] && (PassWord.dirty || PassWord.touched)">
+                    Password is required
+                </div>
+                <div style=" color: red; font-size: 12px;"
+                    *ngIf="PassWord.errors?.['minlength'] && (PassWord.dirty || PassWord.touched)">
+                    minimum at least 6 to 15 characters are valid
+                </div>
+                <div style=" color: red; font-size: 12px;"
+                    *ngIf="PassWord.errors?.['maxlength'] && (PassWord.dirty || PassWord.touched)">
+                    minimum at least 6 to 15 characters are valid
+                </div>
+            </div>
+
+            <div class="checkbox">
+                <input type="checkbox" id="remember" value="remember" name="value" checked>
+                <label for="remember">Remember Me</label>
+            </div>
+            <div class="loginbutton">
+                <button [disabled]="loginForm.invalid" (click)="loginsubmitted()">LOG IN</button>
+            </div>
+        </form>
+
+        <div class="register-text">
+            Not Registered Yet?
+        </div>
+        <div class="createbutton">
+            <a routerLink="/createaccount">CRETAE AN ACCOUNT</a>
+        </div>
+    </div>
+
+</main>
+
+<footer>
+    <p>About&nbsp; <span class="bar">|</span> &nbsp;Contact Us</p>
+</footer>

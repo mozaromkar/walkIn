@@ -1,0 +1,44 @@
+// @font-face {
+//     font-family: quicksand;
+//     src: url(../src/QuicksandFont1/Quicksand-VariableFont_wght.ttf);
+// }
+
+@font-face {
+    font-family: quicksand;
+    src: url(../src/QuicksandFont1/static/Quicksand-Bold.ttf);
+}
+
+// @font-face {
+//     font-family: quicksand-light;
+//     src: url(../src/QuicksandFont1/static/Quicksand-Light.ttf);
+// }
+
+// @font-face {
+//     font-family: quicksand-medium;
+//     src: url(../src/QuicksandFont1/static/Quicksand-Medium.ttf);
+// }
+
+// @font-face {
+//     font-family: quicksand-regular;
+//     src: url(../src/QuicksandFont1/static/Quicksand-Regular.ttf);
+// }
+
+// @font-face {
+//     font-family: quicksand-semibold;
+//     src: url(../src/QuicksandFont1/static/Quicksand-SemiBold.ttf);
+// }
+
+html,
+body {
+    padding: 0;
+    margin: 0px;
+    font-family: quicksand;
+
+    background-color: #EEEEEE;
+    // overflow-x: hidden;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+}

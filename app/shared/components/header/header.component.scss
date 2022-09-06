@@ -1,0 +1,158 @@
+.create-acc * {
+    margin: 0;
+    padding: 0;
+}
+
+
+.create-acc {
+    background-color: #3C4E62;
+    width: 100%;
+    height: 48px;
+    margin: 0;
+    padding: 0;
+
+    img {
+        position: relative;
+        top: 12px;
+        left: 28px;
+    }
+
+    div {
+        width: 140px;
+        height: 20px;
+        display: inline;
+        position: relative;
+        top: 6px;
+        margin-left: 43%;
+        color: white;
+        font-size: 16px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    button {
+        position: relative;
+        top: 10px;
+        right: 24px;
+        width: 90px;
+        height: 28px;
+        float: right;
+        background-color: #3FD28B;
+        border-radius: 6px;
+        border-style: none;
+        font-size: 14px;
+        font-weight: 550;
+
+
+    }
+
+    button.create-btn {
+        margin-right: 16px;
+    }
+
+}
+
+//menu header starts here
+
+.header-field {
+    margin: 24px;
+    height: 56px;
+
+
+
+
+    .header-menu {
+
+        height: 32px;
+        margin: 12px 16px;
+
+        display: flex;
+
+        .number {
+            width: 32px;
+            height: 32px;
+            background-color: #3FD28B;
+            border-radius: 100%;
+
+            &:hover {
+                background-color: #757575;
+            }
+
+            a {
+                position: relative;
+                top: 5px;
+                left: 12px;
+                font-size: 16px;
+            }
+
+
+        }
+
+        .personal-info {
+            margin: 6px 0 6px 8px;
+        }
+
+        .no-2 {
+            margin-left: 430px;
+        }
+
+        .no-3 {
+            margin-left: 440px;
+        }
+
+        //     display: flex;
+
+        //     .qualification-menu {
+        //         margin-left: 400px;
+        //     }
+
+        //     .preview-menu {
+        //         margin-left: 450px;
+        //     }
+
+
+        //     .personal-menu {
+
+        //         width: 250px;
+        //         height: 32px;
+
+
+        //         span {
+        //             display: inline-block;
+        //             height: 32px;
+        //             width: 32px;
+        //             background-color: #3FD28B;
+        //             margin-right: 8px;
+        //             border-radius: 100%;
+
+        //             &:hover {
+        //                 background-color: #757575;
+        //             }
+
+        //             a {
+        //                 position: relative;
+        //                 left: 11px;
+        //                 top: 3px;
+        //                 text-decoration: none;
+
+        //                 font-size: 20px;
+        //             }
+
+        //         }
+
+        //         a {
+        //             text-decoration: none;
+        //             width: 200px;
+        //             height: 20px;
+        //             font-size: 16px;
+        //             position: relative;
+        //             top: 5px;
+        //             color: #222222;
+
+
+        //         }
+
+        //     }
+
+    }
+}

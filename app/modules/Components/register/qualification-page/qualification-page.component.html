@@ -1,0 +1,345 @@
+<app-header></app-header>
+<div class="header-field">
+    <div class="qualification-box">
+        <span>Education Qualification</span>
+        <img src="../../assets/icons/arrow-down.svg" alt="sort icon" (change)="showBlock()">
+    </div>
+
+    <form class="qualification-menu" [formGroup]=" educationForm" (ngSubmit)="educationsubmitted()">
+        <div class=" percentage">
+            <label for="percentage" class="head-text">Aggregate Percentage*</label>
+            <input type="text" id="percentage" formControlName="percentage">
+
+            <div style="color: red; font-size: 12px;"
+                *ngIf="Percentage.errors?.['required'] &&(Percentage.touched || Percentage.dirty) ">
+                Percentage is required
+            </div>
+            <div style="color: red; font-size: 12px;"
+                *ngIf="Percentage.errors?.['pattern'] &&(Percentage.touched || Percentage.dirty) ">
+                pattern is not valid
+            </div>
+            <div style="color: red; font-size: 12px;"
+                *ngIf="Percentage.errors?.['minlength'] &&(Percentage.touched || Percentage.dirty) ">
+                Not valid numbber
+            </div>
+            <div style="color: red; font-size: 12px;"
+                *ngIf="Percentage.errors?.['maxlength'] &&(Percentage.touched || Percentage.dirty) ">
+                not valid number
+            </div>
+        </div>
+        <div style="margin: 24px;">
+            <label class="head-text">Year of Passing*</label> <br>
+            <select name="passing-year" id="" class="select">
+                <option value="default" selected>Select Your passing year</option>
+                <option *ngFor="let option of passingYear; let i=index;" value="{{i}}">
+                    {{option | titlecase}}
+                </option>
+            </select>
+        </div>
+
+        <div class="stream-box">
+            <div class="degree stream">
+                <label class="head-text">Qualification</label><br>
+                <select name="name" id="" class="select">
+                    <option value="B.TECH">B.TECH</option>
+                    <option value="B.TECH">B.TECH</option>
+                    <option value="B.TECH">B.TECH</option>
+                </select>
+
+            </div>
+            <div class="degree stream">
+                <label class="head-text">Qualification</label><br>
+                <select name="name" id="" class="select">
+                    <option value="IT">IT</option>
+                    <option value="IT">IT</option>
+                    <option value="IT">IT</option>
+                </select>
+
+            </div>
+        </div>
+
+        <div class="college-box">
+            <div class="degree stream">
+                <label class="head-text">Qualification</label><br>
+                <select name="name" id="" class="select">
+                    <option value="college">VJTI</option>
+                    <option value="college">VJTI</option>
+                    <option value="college">VJTI</option>
+                </select>
+
+            </div>
+            <div class="degree stream">
+                <label class="head-text">Qualification</label><br>
+                <select name="name" id="" class="select">
+                    <option value="IT">IT</option>
+                    <option value="IT">IT</option>
+                    <option value="IT">IT</option>
+                </select>
+
+            </div>
+        </div>
+        <div class="college-city">
+            <label for="collegecity" class="head-text">Where is your college Located</label><br>
+            <input type="text" id="collegecity" formControlName="collegecity">
+
+            <div style="color: red; font-size: 12px;"
+                *ngIf="CollegeCity.errors?.['required'] &&(CollegeCity.touched || CollegeCity.dirty) ">
+                College City name is required
+            </div>
+
+            <div style="color: red; font-size: 12px;"
+                *ngIf="CollegeCity.errors?.['pattern'] &&(CollegeCity.touched || CollegeCity.dirty) ">
+                College City name is not valid
+            </div>
+        </div>
+    </form>
+
+
+    <div class="qualification-box">
+        <span>Professional Qualification</span>
+        <img src="../../assets/icons/arrow-down.svg" alt="sort icon">
+    </div>
+
+    <div class="applicant-box">
+        <div class="applicant-type">
+            <p>Applicant Type*</p>
+            <div class="app-btn">
+                <div class="fresher-btn">
+                    <input type="radio" id="fresherRadio" name="type" checked="checked" (change)="showExpdiv()">
+                    <label for="fresherRadio">Fresher</label>
+                </div>
+                <div class="exp-btn">
+                    <input type="radio" name="type" id="experiencedRadio" (change)="showFreshdiv()">
+                    <label for="experiencedRadio">Experienced</label>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="applicant-detail  " id="experienced" [formGroup]=" experienceForm" (ngSubmit)="experiencesubmitted() ">
+
+        <div class="college-city">
+            <label for="yearofexp" class="head-text">Years Of Experience*</label><br>
+            <input type="text" id="yearofexp" formControlName="yearofexp">
+
+
+            <div style="color: red; font-size: 12px;"
+                *ngIf="YearOfExp.errors?.['required'] &&(YearOfExp.touched || YearOfExp.dirty) ">
+                year of experience is required
+            </div>
+
+
+        </div>
+        <div class="college-city">
+            <label for="currentctc" class="head-text">Current CTC* (In Rupees)</label><br>
+            <input type="text" id="currentctc" formControlName="currentctc">
+
+            <div style="color: red; font-size: 12px;"
+                *ngIf="CurrentCtc.errors?.['required'] &&(CurrentCtc.touched || CurrentCtc.dirty) ">
+                Curre ctc is required
+            </div>
+        </div>
+        <div class="college-city">
+            <label for="expctc" class="head-text">Expected CTC* (In Rupees)</label><br>
+            <input type="text" id="expctc" formControlName="expctc">
+
+
+            <div style="color: red; font-size: 12px;"
+                *ngIf="ExpCtc.errors?.['required'] &&(ExpCtc.touched || ExpCtc.dirty) ">
+                Expected CTC is required
+            </div>
+        </div>
+
+        <div class="tech-selector">
+            <p>Select All The Technologies You Are Expertise In</p>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">Javascript</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">Angular JS</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">React</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">Node JS</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">others</label>
+            </div>
+        </div>
+        <div class="others">
+            <p>If others, please mention</p>
+            <input type="text" name="others" id="others" class="textfield">
+        </div>
+
+        <div class="tech-selector">
+            <p>Select All The Technologies You Are Familiar In</p>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">Javascript</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">Angular JS</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">React</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">Node JS</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">others</label>
+            </div>
+        </div>
+        <div class="others">
+            <label>If others, please mention</label>
+            <input type="text" name="others" id="others" class="textfield">
+        </div>
+
+        <br>
+        <br>
+
+        <div class="notice-info">
+            <div class="info">
+                <label for="noticedate">If Yes, when will your notice period end?*</label>
+                <input type="date" class="date-select" id="noticedate" formControlName="noticedate">
+
+                <div style="color: red; font-size: 12px;"
+                    *ngIf="NoticeDate.errors?.['required'] &&(NoticeDate.touched || NoticeDate.dirty) ">
+                    Notice date is required
+                </div>
+
+            </div>
+            <div class="info">
+                <label for="noticeperiod">How long is your notice period?* (Mention in months)</label>
+                <select name="months" id="noticeperiod" class="custom-select" formControlName="noticeperiod">
+                    <option value="2 months">2 months</option>
+                    <option value="2 months">3 months</option>
+                    <option value="2 months">4 months</option>
+                </select>
+
+                <div style="color: red; font-size: 12px;"
+                    *ngIf="NoticePeriod.errors?.['required'] &&(NoticePeriod.touched || NoticePeriod.dirty) ">
+                    Notice period is required
+                </div>
+            </div>
+
+        </div>
+
+        <div class="notice-period  appeared">
+            <label>Have you appeared for any test in zeus in last 12 months*</label>
+            <div class="radio-btn">
+
+                <div>
+                    <input type="radio" name="select" id="yes" formControlName="zeustest">
+                    <label for="yes"> Yes</label>
+                </div>
+                <div>
+                    <input type="radio" name="select" id="no" formControlName="zeustest">
+                    <label for="no"> No</label>
+                </div>
+
+
+                <div style="color: red; font-size: 12px;"
+                    *ngIf="ZeusTest.errors?.['required'] &&(ZeusTest.touched || ZeusTest.dirty) ">
+                    Test Field is required
+                </div>
+            </div>
+
+        </div>
+        <div class="other">
+            <p>If yes, which role did you applied for?</p>
+            <input type="text" name="others" id="others" class="textfield">
+        </div>
+
+        <div class="btns">
+            <button routerLink="/createaccount">
+                PREVIOUS
+            </button>
+            <button routerLink="/preview" [disabled]="experienceForm.invalid" (click)="experiencesubmitted()">
+                NEXT
+            </button>
+        </div>
+
+    </div>
+
+
+    <div class="applicant-detail  " id="fresher">
+
+
+        <div class="tech-selector">
+            <p>Select All The Technologies You Are Familiar In</p>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">Javascript</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">Angular JS</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">React</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">Node JS</label>
+            </div>
+            <div class="tech">
+                <input type="checkbox" name="TechChecks" id="Technologies" />
+                <label for="TechChecks">others</label>
+            </div>
+        </div>
+        <div class="others-mention">
+            <p>If others, please mention</p>
+            <input type="text" name="others" id="others" class="textfield">
+        </div>
+
+        <div class="notice-period  appeared">
+            <p>Have you appeared for any test in zeus in last 12 months*</p>
+            <div class="radio-btn">
+                <input type="radio" name="select">
+                <span> Yes</span>
+                <input type="radio" name="select">
+                <span> No</span>
+            </div>
+        </div>
+        <div class="other">
+            <p>If yes, which role did you applied for?</p>
+            <input type="text" name="others" id="others" class="textfield">
+        </div>
+
+        <div class="btns">
+            <button routerLink="/createaccount">
+                PREVIOUS
+            </button>
+            <button routerLink="/preview" [disabled]="experienceForm.invalid" (click)="experiencesubmitted()">
+                NEXT
+            </button>
+        </div>
+    </div>
+
+    <!-- <div class="btns">
+        <button routerLink="/createaccount">
+            PREVIOUS
+        </button>
+        <button routerLink="/preview" [disabled]="experienceForm.invalid" (click)="experiencesubmitted()">
+            NEXT
+        </button>
+    </div> -->
